@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @items = Item.all.order('created_at DESC')
+    # @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -18,10 +18,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    @item.destroy
-    redirect_to root_path
-  end
+  # def destroy
+  #   @item.destroy
+  #   redirect_to root_path
+  # end
 
   private
 
