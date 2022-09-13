@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :schedule_delivery
   belongs_to :shipping_fee_status
+  has_one :order
 
   with_options presence: true do
     validates :name, length: { minimum: 1, maxmum: 40 }
