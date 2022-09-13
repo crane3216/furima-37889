@@ -41,11 +41,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("House number can't be blank")
       end
-      it '郵便番号が空では保存ができないこと' do
-        @order_address.postal_code ="111111"
-        @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code is invalid")
-      end
       it '郵便番号が半角ハイフンを含む形でなければ購入できない' do
         @order_address.postal_code ="1234567"
         @order_address.valid?
@@ -85,9 +80,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.item_id =""
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Item can't be blank")
-      end
-      it 'すべての値が正しく入力されていれば保存できること' do
-        expect(@order_address).to be_valid
       end
     end
   end
